@@ -24,7 +24,10 @@ buttons.forEach((e) => {
     if (currentText === '' && e.className != 'btn number')
     {
       display.value = "Error";
-      console.log('Error');
+      currentText = '';
+      console.log('There are no values');
+      alert('Invalid expression!');
+      return ;
     }
     else if (e.textContent === "=")
     {
@@ -34,7 +37,10 @@ buttons.forEach((e) => {
         currentText = result;
         display.value = result;
       } catch (error) {
-        console.log('Error:', + error);
+        currentText = '';
+        display.value = "Error";
+        alert(error);
+        return ;
       }
     }
     else
