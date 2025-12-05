@@ -38,7 +38,7 @@ body {
   justify-items: flex-end;
   align-items: flex-end;
   align-content: flex-end;
- border: none; 
+  border: none; 
   border-radius: 10px;
   background-color: #0e0630;
   color: white;
@@ -54,20 +54,24 @@ body {
   gap: 5px;
 }
 
-#buttons .btn {
+#buttons button {
   border-radius: 10px;
+  background-color: #1100743f;
+  color: white;
   outline: none;
+  border: none;
 }
 
-#buttons .btn:hover{
+#buttons button:hover{
   color: green;
   box-shadow: 2px 3px 8px 2px rgba(24, 94, 10, 0.74);
 }
 
-#buttons .btn:active
+#buttons button:active
 {
   border: rgba(24, 94, 10, 0.74);
-
+  color: #0e0630;
+  background-color: aliceblue;
 }
 
 #calculator #history 

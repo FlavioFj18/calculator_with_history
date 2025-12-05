@@ -9,10 +9,10 @@
   <body>
     <div id="calculator">
       <h1>CALCULATOR</h1>
-      <input id="display" type="text" />
+      <input id="display" type="text" readonly/>
       <div id="buttons">
-        <button id="cleaner" class="btn">C</button
-        ><button id="delete" class="btn">&#9003;</button>
+        <button id="clean">C</button
+        ><button id="backspace" >&#9003;</button>
         <button class="btn operatar">%</button
         ><button class="btn operatar">/</button>
         <button class="btn number">7</button
@@ -32,9 +32,9 @@
       </div>
       <div id="history">
         <h3>HISTORY</h3>
-        <ul>aslfjldf</ul>
+        <ul id="history-list"></ul>
       </div>
     </div>
-    <script defer src="script.js"></script>
+    <script defer src="app.js"></script>
   </body>
 </html>
