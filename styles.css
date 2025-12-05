@@ -64,6 +64,7 @@ body {
 
 #buttons .equal {
   background-color: rgba(66, 68, 75, 0.459);
+  grid-column: 3 / 5;
 }
 
 #buttons button {
