@@ -3,11 +3,10 @@ var buttons = document.querySelectorAll(".btn");
 var clean = document.getElementById("clean");
 var backSpace = document.getElementById('backspace');
 var historyList = document.getElementById("history-list");
+var calcHistory = [];
 var currentText = '';
 var result = '';
 
-
-//console.log(buttons[4].textContent);
 
 clean.addEventListener('click', () => {
   currentText = '';
@@ -33,7 +32,7 @@ buttons.forEach((e) => {
     {
       try {
         result = eval(currentText);
-        console.log(result);
+        updateHistory(currentText + '=' + result);
         currentText = result;
         display.value = result;
       } catch (error) {
@@ -47,7 +46,18 @@ buttons.forEach((e) => {
     {
       currentText += e.textContent;
       display.value = currentText
-      console.log(currentText);
     }
   })
 });
+
+function updateHistory(expression) {
+  calcHistory.push(expression);
+  historyList.innerHTML = '';
+  let oldItems = calcHistory.slice().reverse();
+  for (let i = 0; i < oldItems.length; i++) {
+    let li = document.createElement('li');
+    li.textContent = oldItems[i];
+    historyList.appendChild(li);
+  }
+}
+
