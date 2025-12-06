@@ -84,7 +84,7 @@ body {
 #buttons button:active {
   border: rgba(24, 94, 10, 0.74);
   color: #0e0630;
-  background-color: aliceblue;
+  background-color: green;
 }
 
 #calculator #history {

@@ -7,6 +7,20 @@ var calcHistory = [];
 var currentText = '';
 var result = '';
 
+function safeEval(expr) {
+  const allowedChars = /^[0-9+\-*/().%]+$/;
+
+  if (!allowedChars.test(expr)) {
+    throw new Error("Invalid characters in the expression");
+  }
+
+  try {
+    const result = eval(expr);
+    return result;
+  } catch (error) {
+    throw new Error("Calculation error");
+  }
+}
 
 clean.addEventListener('click', () => {
   currentText = '';
@@ -31,7 +45,7 @@ buttons.forEach((e) => {
     else if (e.textContent === "=")
     {
       try {
-        result = eval(currentText);
+        result = safeEval(currentText);
         updateHistory(currentText + '=' + result);
         currentText = result;
         display.value = result;
