@@ -27,7 +27,7 @@ buttons.forEach((e) => {
       return;
     } else if (e.textContent === "=") {
       try {
-        result = calculator(currentText, getIndexOfOperator(currentText), getResult);
+        result = calculator(currentText, getIndexOfOperator, getResult);
         updateHistory(currentText + "=" + result);
         currentText = result;
         display.value = result;
@@ -77,17 +77,22 @@ function getResult(str, op) {
 
 function getIndexOfOperator(str) {
   let p = ["+", "-", "*", "/", "%"];
+  let index;
   for (let i = 0; i < p.length; i++) {
-    let index = str.indexOf(p[i]);
+    index = str.indexOf(p[i]);
     if (index != -1) {
-      return index;
+      break
     }
   }
+  return (index)
 }
 
-function calculator(str, p, getResult) {
+function calculator(str, getIndexOfOperator, getResult) {
+  let p = getIndexOfOperator(str)
+  if (p == -1)
+    return(str);
   let c = str[p];
   let expression = str.split(c);
   let result = getResult(expression, c);
-  return result;
+  return String(result);
 }
