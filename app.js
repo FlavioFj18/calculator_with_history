@@ -34,7 +34,7 @@ backSpace.addEventListener('click', () => {
 
 buttons.forEach((e) => {
   e.addEventListener('click', () => {
-    if (currentText === '' && e.className != 'btn operator p')
+    if (currentText === '' && (e.className != 'btn operator p' || e.className != 'btn number'))
     {
       display.value = "Error";
       currentText = '';
